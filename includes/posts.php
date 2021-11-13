@@ -1,3 +1,5 @@
+<?php if (isset($_SESSION['user']['id'])) include_once "tweet_form.php" ?>
+
 <?php if ($posts) {?>
 <section class="wrapper">
     <ul class="tweet-list">

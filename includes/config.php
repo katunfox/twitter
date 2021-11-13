@@ -7,3 +7,5 @@ define('DB_NAME', 'twitter');
 define('DB_USER', 'root');
 define('DB_PASS', 'root');
 
+session_start();
+
