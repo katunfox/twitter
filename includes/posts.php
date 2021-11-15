@@ -29,8 +29,17 @@
                     </div>
                 </div>
                 <footer>
-                    <button class="tweet__like">0</button>
-                    <!-- tweet__like_active -->
+                    <?php 
+                    $likes_count = get_likes_count($post['id']);
+                    if (logged_in()) { 
+                        if (is_post_liked($post['id'])) { ?>
+                            <a href="<?php echo get_url('includes/delete_like.php?id=' . $post['id']); ?>" class="tweet__like tweet__like_active"><?php echo $likes_count; ?></a>
+                        <?php } else { ?>
+                            <a href="<?php echo get_url('includes/add_like.php?id=' . $post['id']); ?>" class="tweet__like"><?php echo $likes_count; ?></a>
+                        <?php }
+                    } else { ?>
+                        <div class="tweet__like"><?php echo $likes_count; ?></div>
+                    <?php } ?>           
                 </footer>
             </article>
         </li>
